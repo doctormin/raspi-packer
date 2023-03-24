@@ -126,10 +126,10 @@ if [ "$lockdown_root" = "true" ] ; then
   userdel -r alarm
   # disable root login root:root
   # https://wiki.archlinux.org/index.php/Sudo#Disable_root_login
-  passwd -l root
-else
-  # add alarm to sudo if its not deleted
-  usermod -aG wheel "alarm"
+  # passwd -l root
+# else
+#   # add alarm to sudo if its not deleted
+#   usermod -aG wheel 
 fi
 
 # copy the throttle script
@@ -139,7 +139,7 @@ chmod +x "/home/${username}/throttle.sh"
 # Setup user ssh keys
 mkdir /home/"${username}"/.ssh
 touch "/home/${username}/.ssh/authorized_keys"
-curl "${github_keys}" > "/home/${username}/.ssh/authorized_keys"
+# curl "${github_keys}" > "/home/${username}/.ssh/authorized_keys"
 chown -R "${username}:${username}" "/home/${username}/.ssh"
 chmod go-w "/home/${username}"
 chmod 700 "/home/${username}/.ssh"

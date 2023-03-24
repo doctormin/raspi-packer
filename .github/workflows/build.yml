@@ -94,7 +94,7 @@ jobs:
     - name: run packer
       shell: bash
       run: |
-        sudo packer build -var-file ${{ matrix.host.path }} packer.json
+        sudo packer build packer.json
 
     # pack
     - name: archive + compress image
